@@ -1,0 +1,10 @@
+server:
+  port: 8084
+
+#dbconnection
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bankingmanagement
+    username: root
+    password: carnew290
