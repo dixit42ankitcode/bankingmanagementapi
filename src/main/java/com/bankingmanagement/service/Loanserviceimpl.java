@@ -58,4 +58,6 @@ public class Loanserviceimpl implements Loanservice{
         return loanDTOList;
 
     }
+
+
 }

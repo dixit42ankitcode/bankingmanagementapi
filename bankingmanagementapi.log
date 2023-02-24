@@ -1,23 +1,21 @@
-2023-02-21 09:26:54 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12h35m6s35ms957탎600ns).
-2023-02-21 09:27:43 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=49s218ms369탎900ns).
-2023-02-21 10:38:36 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 8084 (C:\Users\Dell\Downloads\bankingmanagement-api\bankingmanagement-api\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagement-api\bankingmanagement-api)
-2023-02-21 10:38:36 - The following 1 profile is active: "uat"
-2023-02-21 10:38:37 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-02-21 10:38:37 - Finished Spring Data repository scanning in 108 ms. Found 5 JPA repository interfaces.
-2023-02-21 10:38:38 - Tomcat initialized with port(s): 8084 (http)
-2023-02-21 10:38:38 - Starting service [Tomcat]
-2023-02-21 10:38:38 - Starting Servlet engine: [Apache Tomcat/10.1.5]
-2023-02-21 10:38:39 - Initializing Spring embedded WebApplicationContext
-2023-02-21 10:38:39 - Root WebApplicationContext: initialization completed in 2900 ms
-2023-02-21 10:38:39 - HikariPool-1 - Starting...
-2023-02-21 10:38:39 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2023-02-21 10:38:40 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@bc09d57
-2023-02-21 10:38:40 - HikariPool-1 - Start completed.
-2023-02-21 10:38:40 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-02-21 10:38:40 - HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-02-21 10:38:41 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-02-21 10:38:41 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2023-02-21 10:38:41 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+2023-02-23 10:52:58 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 11608 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 10:52:58 - The following 1 profile is active: "uat"
+2023-02-23 10:53:00 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 10:53:00 - Finished Spring Data repository scanning in 118 ms. Found 5 JPA repository interfaces.
+2023-02-23 10:53:01 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 10:53:01 - Starting service [Tomcat]
+2023-02-23 10:53:01 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 10:53:04 - Initializing Spring embedded WebApplicationContext
+2023-02-23 10:53:04 - Root WebApplicationContext: initialization completed in 5984 ms
+2023-02-23 10:53:04 - HikariPool-1 - Starting...
+2023-02-23 10:53:04 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 10:53:06 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@30bbcf91
+2023-02-23 10:53:06 - HikariPool-1 - Start completed.
+2023-02-23 10:53:06 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 10:53:06 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 10:53:07 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 10:53:07 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 10:53:08 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
 jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
 	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
 	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
@@ -52,42 +50,37 @@ jakarta.validation.NoProviderFoundException: Unable to create a Configuration, b
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
 	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
-2023-02-21 10:38:43 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-02-21 10:38:43 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-02-21 10:38:43 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-02-21 10:38:45 - Tomcat started on port(s): 8084 (http) with context path ''
-2023-02-21 10:38:45 - Started BankingmanagementApiApplication in 10.184 seconds (process running for 10.923)
-2023-02-21 10:38:45 - bank application has been started
-2023-02-21 10:38:51 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-02-21 10:38:51 - Initializing Servlet 'dispatcherServlet'
-2023-02-21 10:38:51 - Completed initialization in 3 ms
-2023-02-21 10:38:51 - inside customerdetails.getcustomerdetails()
-2023-02-21 10:38:51 - inside Customerserviceimpl.findAll()
-2023-02-21 10:38:52 - list of Customers,customers:[Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[]), Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[])]
-2023-02-21 10:38:52 - customer details not found
-2023-02-21 11:11:17 - inside Loancontroller.getloandetails() 
-2023-02-21 11:11:17 - inside Loanserviceimpl.findAll()
-2023-02-21 11:11:17 - list of loans,Loans:[]
-2023-02-21 11:11:17 - loan details are not found
-2023-02-21 11:11:17 - exception while finding loan details,exception
-2023-02-21 15:18:46 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 1272 (C:\Users\Dell\Downloads\bankingmanagement-api\bankingmanagement-api\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagement-api\bankingmanagement-api)
-2023-02-21 15:18:46 - The following 1 profile is active: "uat"
-2023-02-21 15:18:47 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-02-21 15:18:48 - Finished Spring Data repository scanning in 109 ms. Found 5 JPA repository interfaces.
-2023-02-21 15:18:49 - Tomcat initialized with port(s): 8084 (http)
-2023-02-21 15:18:49 - Starting service [Tomcat]
-2023-02-21 15:18:49 - Starting Servlet engine: [Apache Tomcat/10.1.5]
-2023-02-21 15:18:49 - Initializing Spring embedded WebApplicationContext
-2023-02-21 15:18:49 - Root WebApplicationContext: initialization completed in 3288 ms
-2023-02-21 15:18:49 - HikariPool-1 - Starting...
-2023-02-21 15:18:49 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2023-02-21 15:18:50 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7015ebef
-2023-02-21 15:18:50 - HikariPool-1 - Start completed.
-2023-02-21 15:18:51 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-02-21 15:18:51 - HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-02-21 15:18:51 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-02-21 15:18:51 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2023-02-21 15:18:54 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+2023-02-23 10:53:09 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 10:53:09 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 10:53:10 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 10:53:11 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 10:53:11 - Started BankingmanagementApiApplication in 14.845 seconds (process running for 18.539)
+2023-02-23 10:53:11 - bank application has been started
+2023-02-23 11:06:21 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-23 11:06:21 - Initializing Servlet 'dispatcherServlet'
+2023-02-23 11:06:21 - Completed initialization in 119 ms
+2023-02-23 11:06:47 -  input to bankcontroller.getbankbycode.code:101
+2023-02-23 11:06:47 - input to bankerviceimpl.findBankdetails,code:101
+2023-02-23 11:06:47 - bank details for code:101 and the details:com.bankingmanagement.entity.Bank@2e2fa30d
+2023-02-23 11:06:47 - end of the bankserviceimpl.findbankdetails
+2023-02-23 11:54:51 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 1132 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 11:54:51 - The following 1 profile is active: "uat"
+2023-02-23 11:54:53 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 11:54:53 - Finished Spring Data repository scanning in 162 ms. Found 5 JPA repository interfaces.
+2023-02-23 11:54:55 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 11:54:55 - Starting service [Tomcat]
+2023-02-23 11:54:55 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 11:54:55 - Initializing Spring embedded WebApplicationContext
+2023-02-23 11:54:55 - Root WebApplicationContext: initialization completed in 3971 ms
+2023-02-23 11:54:56 - HikariPool-1 - Starting...
+2023-02-23 11:54:56 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 11:54:57 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@25953be6
+2023-02-23 11:54:57 - HikariPool-1 - Start completed.
+2023-02-23 11:54:57 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 11:54:57 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 11:54:59 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 11:54:59 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 11:55:00 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
 jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
 	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
 	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
@@ -122,63 +115,37 @@ jakarta.validation.NoProviderFoundException: Unable to create a Configuration, b
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
 	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
-2023-02-21 15:18:55 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-02-21 15:18:55 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-02-21 15:18:56 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-02-21 15:18:57 - Tomcat started on port(s): 8084 (http) with context path ''
-2023-02-21 15:18:57 - Started BankingmanagementApiApplication in 12.938 seconds (process running for 14.834)
-2023-02-21 15:18:57 - bank application has been started
-2023-02-21 15:19:16 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-02-21 15:19:16 - Initializing Servlet 'dispatcherServlet'
-2023-02-21 15:19:16 - Completed initialization in 2 ms
-2023-02-21 15:19:17 - inside Loancontroller.getloandetails() 
-2023-02-21 15:19:17 - inside Loanserviceimpl.findAll()
-2023-02-21 15:19:18 - list of loans,Loans:[]
-2023-02-21 15:19:18 - loan details are not found
-2023-02-21 15:19:18 - exception while finding loan details,exception
-2023-02-21 15:20:33 - inside customerdetails.getcustomerdetails()
-2023-02-21 15:20:33 - inside Customerserviceimpl.findAll()
-2023-02-21 15:20:33 - list of Customers,customers:[Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[]), Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[])]
-2023-02-21 15:20:34 - customer details not found
-2023-02-21 15:20:46 - inside Branchcontroller.getbranchdetails()
-2023-02-21 15:20:46 - inside Branchserviceimpl.findAll()
-2023-02-21 15:20:46 - list of branch,branch:[Branch(branchId=10, name=saboli, address=lucknow, bank=com.bankingmanagement.entity.Bank@10450fa9, account=[], loan=[]), Branch(branchId=11, name=sultanpur, address=delhi, bank=com.bankingmanagement.entity.Bank@5a3fa748, account=[], loan=[])]
-2023-02-21 15:20:46 - branch details not found
-2023-02-21 15:20:55 - inside the bank controller.getBankDetails
-2023-02-21 15:20:55 - inside Bankserviceimpl.findall()
-2023-02-21 15:20:55 - list of Banks,banks:[com.bankingmanagement.entity.Bank@442816df, com.bankingmanagement.entity.Bank@5a64bc02]
-2023-02-21 15:20:55 - Bank details not found
-2023-02-21 15:28:36 - inside Loancontroller.getloandetails() 
-2023-02-21 15:28:36 - inside Loanserviceimpl.findAll()
-2023-02-21 15:28:36 - list of loans,Loans:[]
-2023-02-21 15:28:36 - loan details are not found
-2023-02-21 15:28:36 - exception while finding loan details,exception
-2023-02-21 15:30:23 - inside Loancontroller.getloandetails() 
-2023-02-21 15:30:23 - inside Loanserviceimpl.findAll()
-2023-02-21 15:30:23 - list of loans,Loans:[]
-2023-02-21 15:30:23 - loan details are not found
-2023-02-21 15:30:23 - exception while finding loan details,exception
-2023-02-21 17:37:18 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h4m27s306ms578탎300ns).
-2023-02-21 17:55:27 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m37s671ms901탎100ns).
-2023-02-21 18:41:17 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=33m19s424ms123탎100ns).
-2023-02-21 19:09:42 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 14008 (C:\Users\Dell\Downloads\bankingmanagement-api\bankingmanagement-api\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagement-api\bankingmanagement-api)
-2023-02-21 19:09:42 - The following 1 profile is active: "uat"
-2023-02-21 19:09:43 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-02-21 19:09:43 - Finished Spring Data repository scanning in 95 ms. Found 5 JPA repository interfaces.
-2023-02-21 19:09:44 - Tomcat initialized with port(s): 8084 (http)
-2023-02-21 19:09:44 - Starting service [Tomcat]
-2023-02-21 19:09:44 - Starting Servlet engine: [Apache Tomcat/10.1.5]
-2023-02-21 19:09:45 - Initializing Spring embedded WebApplicationContext
-2023-02-21 19:09:45 - Root WebApplicationContext: initialization completed in 2985 ms
-2023-02-21 19:09:45 - HikariPool-1 - Starting...
-2023-02-21 19:09:45 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
-2023-02-21 19:09:46 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@c3719e5
-2023-02-21 19:09:46 - HikariPool-1 - Start completed.
-2023-02-21 19:09:46 - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-02-21 19:09:46 - HHH000412: Hibernate ORM core version 6.1.6.Final
-2023-02-21 19:09:47 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
-2023-02-21 19:09:47 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2023-02-21 19:09:48 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+2023-02-23 11:55:02 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 11:55:02 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 11:55:03 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 11:55:06 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 11:55:06 - Started BankingmanagementApiApplication in 15.841 seconds (process running for 16.535)
+2023-02-23 11:55:06 - bank application has been started
+2023-02-23 11:55:52 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-23 11:55:52 - Initializing Servlet 'dispatcherServlet'
+2023-02-23 11:55:52 - Completed initialization in 82 ms
+2023-02-23 11:55:52 - inside branchcontroller.getbranchbyuid.branchid:10
+2023-02-23 11:55:52 - input to branchserviceimpl.findbranchdetails.branchid:10
+2023-02-23 11:55:53 - branch details for branchid:10,details:Branch(branchId=10, name=saboli, address=lucknow, bank=com.bankingmanagement.entity.Bank@5eaf418a, account=[], loan=[])
+2023-02-23 11:55:53 - end of branchserviceimpl.findbranchdetails
+2023-02-23 11:59:25 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 1852 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 11:59:25 - The following 1 profile is active: "uat"
+2023-02-23 11:59:27 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 11:59:28 - Finished Spring Data repository scanning in 118 ms. Found 5 JPA repository interfaces.
+2023-02-23 11:59:29 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 11:59:29 - Starting service [Tomcat]
+2023-02-23 11:59:29 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 11:59:30 - Initializing Spring embedded WebApplicationContext
+2023-02-23 11:59:30 - Root WebApplicationContext: initialization completed in 4245 ms
+2023-02-23 11:59:30 - HikariPool-1 - Starting...
+2023-02-23 11:59:30 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 11:59:31 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e180aaf
+2023-02-23 11:59:31 - HikariPool-1 - Start completed.
+2023-02-23 11:59:31 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 11:59:31 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 11:59:32 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 11:59:32 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 11:59:33 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
 jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
 	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
 	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
@@ -213,31 +180,358 @@ jakarta.validation.NoProviderFoundException: Unable to create a Configuration, b
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
 	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
-2023-02-21 19:09:49 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-02-21 19:09:49 - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-02-21 19:09:49 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-02-21 19:09:51 - Tomcat started on port(s): 8084 (http) with context path ''
-2023-02-21 19:09:51 - Started BankingmanagementApiApplication in 10.268 seconds (process running for 11.525)
-2023-02-21 19:09:51 - bank application has been started
-2023-02-21 19:10:01 - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-02-21 19:10:01 - Initializing Servlet 'dispatcherServlet'
-2023-02-21 19:10:01 - Completed initialization in 3 ms
-2023-02-21 19:10:01 - inside customerdetails.getcustomerdetails()
-2023-02-21 19:10:01 - inside Customerserviceimpl.findAll()
-2023-02-21 19:10:01 - list of Customers,customers:[Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[]), Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[])]
-2023-02-21 19:10:01 - customer details not found
-2023-02-21 19:10:10 - inside Loancontroller.getloandetails() 
-2023-02-21 19:10:10 - inside Loanserviceimpl.findAll()
-2023-02-21 19:10:10 - list of loans,Loans:[]
-2023-02-21 19:10:10 - loan details are not found
-2023-02-21 19:10:10 - exception while finding loan details,exception
-2023-02-21 19:10:26 - inside Accountcontroller.getaccountdetails() 
-2023-02-21 19:10:26 - inside Accountserviceimpl.findAll() 
-2023-02-21 19:10:26 - list of Account,account:[]
-2023-02-21 19:10:26 - account details not found
-2023-02-21 19:10:26 - exception while finding account details
-com.bankingmanagement.exception.Accountdetailsnotfound: account details not found
-	at com.bankingmanagement.service.Accountserviceimpl.findAll(Accountserviceimpl.java:33)
+2023-02-23 11:59:34 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 11:59:34 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 11:59:35 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 11:59:37 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 11:59:37 - Started BankingmanagementApiApplication in 12.905 seconds (process running for 13.61)
+2023-02-23 11:59:37 - bank application has been started
+2023-02-23 12:42:18 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 12104 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 12:42:18 - The following 1 profile is active: "uat"
+2023-02-23 12:42:20 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 12:42:20 - Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2023-02-23 12:42:22 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 12:42:22 - Starting service [Tomcat]
+2023-02-23 12:42:22 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 12:42:23 - Initializing Spring embedded WebApplicationContext
+2023-02-23 12:42:23 - Root WebApplicationContext: initialization completed in 4332 ms
+2023-02-23 12:42:23 - HikariPool-1 - Starting...
+2023-02-23 12:42:23 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 12:42:24 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5e180aaf
+2023-02-23 12:42:24 - HikariPool-1 - Start completed.
+2023-02-23 12:42:24 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 12:42:25 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 12:42:25 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 12:42:26 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 12:42:26 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
+	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:479)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:287)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
+2023-02-23 12:42:27 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 12:42:27 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 12:42:28 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 12:42:30 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 12:42:30 - Started BankingmanagementApiApplication in 12.849 seconds (process running for 14.12)
+2023-02-23 12:42:30 - bank application has been started
+2023-02-23 12:42:37 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-23 12:42:37 - Initializing Servlet 'dispatcherServlet'
+2023-02-23 12:42:37 - Completed initialization in 3 ms
+2023-02-23 12:42:37 - inside Customercontroller.getcustomerbycustid.custid:1
+2023-02-23 12:42:37 - inside customerserviceimpl.findcustomerdetails.custid:1
+2023-02-23 12:42:37 - customer details for custid:1,details:Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[])
+2023-02-23 12:42:37 - end of customerserviceimpl.findcustomerdetails
+2023-02-23 16:12:54 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 14100 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 16:12:54 - The following 1 profile is active: "uat"
+2023-02-23 16:12:55 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 16:12:56 - Finished Spring Data repository scanning in 100 ms. Found 5 JPA repository interfaces.
+2023-02-23 16:12:58 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 16:12:58 - Starting service [Tomcat]
+2023-02-23 16:12:58 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 16:12:59 - Initializing Spring embedded WebApplicationContext
+2023-02-23 16:12:59 - Root WebApplicationContext: initialization completed in 5045 ms
+2023-02-23 16:12:59 - HikariPool-1 - Starting...
+2023-02-23 16:12:59 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 16:13:00 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2e590b
+2023-02-23 16:13:00 - HikariPool-1 - Start completed.
+2023-02-23 16:13:00 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 16:13:01 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 16:13:01 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 16:13:02 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 16:13:02 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
+	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:479)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:287)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
+2023-02-23 16:13:04 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 16:13:04 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 16:13:05 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 16:13:06 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 16:13:06 - Started BankingmanagementApiApplication in 14.219 seconds (process running for 15.682)
+2023-02-23 16:13:06 - bank application has been started
+2023-02-23 16:13:22 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-23 16:13:22 - Initializing Servlet 'dispatcherServlet'
+2023-02-23 16:13:22 - Completed initialization in 4 ms
+2023-02-23 16:13:22 - inside controller.save().bankRequest
+2023-02-23 16:13:22 - input to bankserviceimpl.save().bankRequest:BankRequest(name=sbi, code=555, address=bangalore)
+2023-02-23 16:13:23 - response,bankDTO:BankDTO(name=sbi, code=0, address=bangalore, branchDTOS=null)
+2023-02-23 16:55:58 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 10260 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 16:55:58 - The following 1 profile is active: "uat"
+2023-02-23 16:55:59 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 16:55:59 - Finished Spring Data repository scanning in 129 ms. Found 5 JPA repository interfaces.
+2023-02-23 16:56:01 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 16:56:01 - Starting service [Tomcat]
+2023-02-23 16:56:01 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 16:56:01 - Initializing Spring embedded WebApplicationContext
+2023-02-23 16:56:01 - Root WebApplicationContext: initialization completed in 3232 ms
+2023-02-23 16:56:01 - HikariPool-1 - Starting...
+2023-02-23 16:56:01 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 16:56:03 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@617449dd
+2023-02-23 16:56:03 - HikariPool-1 - Start completed.
+2023-02-23 16:56:03 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 16:56:03 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 16:56:04 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 16:56:04 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 16:56:05 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
+	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:479)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:287)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
+2023-02-23 16:56:06 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 16:56:06 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 16:56:07 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 16:56:09 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 16:56:09 - Started BankingmanagementApiApplication in 12.266 seconds (process running for 12.921)
+2023-02-23 16:56:09 - bank application has been started
+2023-02-23 16:56:26 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-23 16:56:26 - Initializing Servlet 'dispatcherServlet'
+2023-02-23 16:56:26 - Completed initialization in 4 ms
+2023-02-23 16:56:26 - inside controller.save().branchrequest.
+2023-02-23 16:56:26 - input to branchserviceimpl.save().branchRequest:BranchRequest(name=null, address=null, branchId=0)
+2023-02-23 16:56:27 - SQL Error: 1364, SQLState: HY000
+2023-02-23 16:56:27 - Field 'branch_id' doesn't have a default value
+2023-02-23 16:56:27 - branch details not found 
+2023-02-23 16:59:00 - inside controller.save().branchrequest.
+2023-02-23 16:59:00 - input to branchserviceimpl.save().branchRequest:BranchRequest(name=null, address=null, branchId=0)
+2023-02-23 16:59:01 - SQL Error: 1364, SQLState: HY000
+2023-02-23 16:59:01 - Field 'branch_id' doesn't have a default value
+2023-02-23 16:59:01 - branch details not found 
+2023-02-23 17:00:39 - inside controller.save().branchrequest.
+2023-02-23 17:00:39 - input to branchserviceimpl.save().branchRequest:BranchRequest(name=null, address=null, branchId=0)
+2023-02-23 17:00:39 - SQL Error: 1364, SQLState: HY000
+2023-02-23 17:00:39 - Field 'branch_id' doesn't have a default value
+2023-02-23 17:00:39 - branch details not found 
+2023-02-23 19:38:43 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 4172 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 19:38:43 - The following 1 profile is active: "uat"
+2023-02-23 19:38:45 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 19:38:45 - Finished Spring Data repository scanning in 123 ms. Found 5 JPA repository interfaces.
+2023-02-23 19:38:46 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 19:38:46 - Starting service [Tomcat]
+2023-02-23 19:38:46 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 19:38:47 - Initializing Spring embedded WebApplicationContext
+2023-02-23 19:38:47 - Root WebApplicationContext: initialization completed in 3210 ms
+2023-02-23 19:38:47 - HikariPool-1 - Starting...
+2023-02-23 19:38:47 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 19:38:48 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7015ebef
+2023-02-23 19:38:48 - HikariPool-1 - Start completed.
+2023-02-23 19:38:48 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 19:38:48 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 19:38:49 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 19:38:50 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 19:38:50 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
+	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:479)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:287)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
+2023-02-23 19:38:51 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 19:38:51 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 19:38:53 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 19:38:55 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 19:38:55 - Started BankingmanagementApiApplication in 13.283 seconds (process running for 14.033)
+2023-02-23 19:38:55 - bank application has been started
+2023-02-23 19:46:22 - Starting BankingmanagementApiApplication using Java 19.0.2 with PID 14708 (C:\Users\Dell\Downloads\bankingmanagementapi\build\classes\java\main started by Dell in C:\Users\Dell\Downloads\bankingmanagementapi)
+2023-02-23 19:46:22 - The following 1 profile is active: "uat"
+2023-02-23 19:46:23 - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-02-23 19:46:24 - Finished Spring Data repository scanning in 114 ms. Found 5 JPA repository interfaces.
+2023-02-23 19:46:25 - Tomcat initialized with port(s): 8084 (http)
+2023-02-23 19:46:25 - Starting service [Tomcat]
+2023-02-23 19:46:25 - Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-02-23 19:46:25 - Initializing Spring embedded WebApplicationContext
+2023-02-23 19:46:25 - Root WebApplicationContext: initialization completed in 3050 ms
+2023-02-23 19:46:27 - HikariPool-1 - Starting...
+2023-02-23 19:46:27 - Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2023-02-23 19:46:28 - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7015ebef
+2023-02-23 19:46:28 - HikariPool-1 - Start completed.
+2023-02-23 19:46:28 - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-02-23 19:46:28 - HHH000412: Hibernate ORM core version 6.1.6.Final
+2023-02-23 19:46:29 - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2023-02-23 19:46:29 - HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-02-23 19:46:30 - Error calling `jakarta.validation.Validation#buildDefaultValidatorFactory`
+jakarta.validation.NoProviderFoundException: Unable to create a Configuration, because no Jakarta Bean Validation provider could be found. Add a provider like Hibernate Validator (RI) to your classpath.
+	at jakarta.validation.Validation$GenericBootstrapImpl.configure(Validation.java:291)
+	at jakarta.validation.Validation.buildDefaultValidatorFactory(Validation.java:103)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.getValidatorFactory(TypeSafeActivator.java:479)
+	at org.hibernate.cfg.beanvalidation.TypeSafeActivator.activate(TypeSafeActivator.java:82)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.hibernate.cfg.beanvalidation.BeanValidationIntegrator.integrate(BeanValidationIntegrator.java:137)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:287)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:415)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1425)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:376)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1797)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1747)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:521)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:326)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:324)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1130)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:905)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:584)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:730)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:432)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1302)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1291)
+	at com.bankingmanagement.BankingmanagementApiApplication.main(BankingmanagementApiApplication.java:14)
+2023-02-23 19:46:31 - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-02-23 19:46:31 - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-02-23 19:46:32 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-02-23 19:46:34 - Tomcat started on port(s): 8084 (http) with context path ''
+2023-02-23 19:46:34 - Started BankingmanagementApiApplication in 13.211 seconds (process running for 13.805)
+2023-02-23 19:46:34 - bank application has been started
+2023-02-23 19:46:40 - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-02-23 19:46:40 - Initializing Servlet 'dispatcherServlet'
+2023-02-23 19:46:40 - Completed initialization in 28 ms
+2023-02-23 19:46:40 - inside Loancontroller.getloandetails() 
+2023-02-23 19:46:40 - inside Loanserviceimpl.findAll()
+2023-02-23 19:46:41 - list of loans,Loans:[Loan(loanId=200, loanType=car, loanamount=30000.0, branch=Branch(branchId=10, name=saboli, address=lucknow, bank=com.bankingmanagement.entity.Bank@7f9bc66f, account=[], loan=[]), customer=Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[])), Loan(loanId=201, loanType=education, loanamount=40000.0, branch=Branch(branchId=11, name=sultanpur, address=delhi, bank=com.bankingmanagement.entity.Bank@fc156e2, account=[], loan=[]), customer=Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[]))]
+2023-02-23 19:46:41 - exception while finding loan details,exception
+2023-02-23 19:47:27 - inside Loancontroller.getloandetails() 
+2023-02-23 19:47:27 - inside Loanserviceimpl.findAll()
+2023-02-23 19:47:28 - list of loans,Loans:[Loan(loanId=200, loanType=car, loanamount=30000.0, branch=Branch(branchId=10, name=saboli, address=lucknow, bank=com.bankingmanagement.entity.Bank@4066ae5e, account=[], loan=[]), customer=Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[])), Loan(loanId=201, loanType=education, loanamount=40000.0, branch=Branch(branchId=11, name=sultanpur, address=delhi, bank=com.bankingmanagement.entity.Bank@698438ae, account=[], loan=[]), customer=Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[]))]
+2023-02-23 19:47:28 - exception while finding loan details,exception
+2023-02-23 19:49:05 - inside Accountcontroller.getaccountdetails() 
+2023-02-23 19:49:06 - inside Accountserviceimpl.findAll() 
+2023-02-23 19:49:06 - list of Account,account:[Account(accontNo=151, accountType=saving, balance=20000.0, branch=Branch(branchId=10, name=saboli, address=lucknow, bank=com.bankingmanagement.entity.Bank@13ade49d, account=[], loan=[]), customer=Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[])), Account(accontNo=152, accountType=current, balance=25000.0, branch=Branch(branchId=11, name=sultanpur, address=delhi, bank=com.bankingmanagement.entity.Bank@3735bb38, account=[], loan=[]), customer=Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[]))]
+2023-02-23 19:49:06 - exception while finding account details
+java.lang.ClassCastException: class com.bankingmanagement.entity.Customer cannot be cast to class java.util.Set (com.bankingmanagement.entity.Customer is in unnamed module of loader 'app'; java.util.Set is in module java.base of loader 'bootstrap')
+	at com.bankingmanagement.service.Accountserviceimpl.lambda$findAll$1(Accountserviceimpl.java:39)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at com.bankingmanagement.service.Accountserviceimpl.findAll(Accountserviceimpl.java:48)
 	at com.bankingmanagement.controller.Accountcontroller.getaccountdetails(Accountcontroller.java:27)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
@@ -287,64 +581,11 @@ com.bankingmanagement.exception.Accountdetailsnotfound: account details not foun
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1589)
-2023-02-21 19:10:38 - inside Accountcontroller.getaccountdetails() 
-2023-02-21 19:10:38 - inside Accountserviceimpl.findAll() 
-2023-02-21 19:10:38 - list of Account,account:[]
-2023-02-21 19:10:38 - account details not found
-2023-02-21 19:10:38 - exception while finding account details
-com.bankingmanagement.exception.Accountdetailsnotfound: account details not found
-	at com.bankingmanagement.service.Accountserviceimpl.findAll(Accountserviceimpl.java:33)
-	at com.bankingmanagement.controller.Accountcontroller.getaccountdetails(Accountcontroller.java:27)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:207)
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:152)
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
-	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
-	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1080)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:973)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:705)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:814)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:223)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:185)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:158)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:542)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:119)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:357)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:400)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:859)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1734)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:1589)
-2023-02-21 19:10:44 - inside Loancontroller.getloandetails() 
-2023-02-21 19:10:44 - inside Loanserviceimpl.findAll()
-2023-02-21 19:10:44 - list of loans,Loans:[]
-2023-02-21 19:10:44 - loan details are not found
-2023-02-21 19:10:44 - exception while finding loan details,exception
+2023-02-23 19:50:23 - inside the bank controller.getBankDetails
+2023-02-23 19:50:23 - inside Bankserviceimpl.findall()
+2023-02-23 19:50:23 - list of Banks,banks:[com.bankingmanagement.entity.Bank@14d42cb3, com.bankingmanagement.entity.Bank@6a87c60f, com.bankingmanagement.entity.Bank@61479840]
+2023-02-23 19:50:23 - Bank details not found
+2023-02-23 19:50:33 - inside Loancontroller.getloandetails() 
+2023-02-23 19:50:33 - inside Loanserviceimpl.findAll()
+2023-02-23 19:50:33 - list of loans,Loans:[Loan(loanId=200, loanType=car, loanamount=30000.0, branch=Branch(branchId=10, name=saboli, address=lucknow, bank=com.bankingmanagement.entity.Bank@235c1464, account=[], loan=[]), customer=Customer(customerId=1, name=ankit, phoneNo=25454, address=lucknow, account=[], loan=[])), Loan(loanId=201, loanType=education, loanamount=40000.0, branch=Branch(branchId=11, name=sultanpur, address=delhi, bank=com.bankingmanagement.entity.Bank@ba8ed81, account=[], loan=[]), customer=Customer(customerId=2, name=arun, phoneNo=12325, address=punjab, account=[], loan=[]))]
+2023-02-23 19:50:33 - exception while finding loan details,exception

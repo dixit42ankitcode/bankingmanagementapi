@@ -39,4 +39,5 @@ public class Loancontroller {
         }
         return new ResponseEntity<List<LoanDTO>>(loanDTOS,HttpStatus.OK);
     }
+
 }

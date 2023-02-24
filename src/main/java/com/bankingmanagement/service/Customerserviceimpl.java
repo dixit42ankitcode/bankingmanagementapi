@@ -7,6 +7,7 @@ import com.bankingmanagement.entity.Loan;
 import com.bankingmanagement.exception.Customerdetailsnotfound;
 import com.bankingmanagement.model.AccountDTO;
 import com.bankingmanagement.model.CustomerDTO;
+import com.bankingmanagement.model.CustomerRequest;
 import com.bankingmanagement.model.LoanDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -60,5 +62,63 @@ public class Customerserviceimpl implements Customerservice {
 
 
 
+    }
+
+    @Override
+    public CustomerDTO findcustomerdetails(int custid) throws Customerdetailsnotfound {
+        log.info("inside customerserviceimpl.findcustomerdetails.custid:{}",custid);
+        if(custid<=0)
+        {
+            log.info("customer details not found");
+            throw new Customerdetailsnotfound("invalid customer details");
+        }
+        Optional<Customer>customer=customerrepository.findById(custid);
+        log.info("customer details for custid:{},details:{}",custid,customer.get());
+        if(!customer.isPresent())
+        {
+            log.info("customer details not found for custid:{}",custid);
+            throw new Customerdetailsnotfound("customer details not found");
+        }
+        Customer customer1=customer.get();
+        CustomerDTO customerDTO=new CustomerDTO();
+        customerDTO.setPhoneNo(customer1.getPhoneNo());
+        customerDTO.setAddress(customer1.getAddress());
+        Set<Account>accounts=customer1.getAccount();
+        List<AccountDTO>accountDTOS=accounts.stream().map(account -> {
+            AccountDTO accountDTO = new AccountDTO();
+            accountDTO.setAccountType(account.getAccountType());
+            accountDTO.setBalance(account.getBalance());
+            return accountDTO;
+        }).collect(Collectors.toList());
+        Set<Loan>loans=customer1.getLoan();
+        List<LoanDTO>loanDTOS=loans.stream().map(loan -> {
+            LoanDTO loanDTO=new LoanDTO();
+            loanDTO.setLoanType(loan.getLoanType());
+            loanDTO.setLoanamount(loan.getLoanamount());
+            return loanDTO;
+        }).collect(Collectors.toList());
+        customerDTO.setLoanDTOS(loanDTOS);
+        customerDTO.setAccountDTOS(accountDTOS);
+        log.info("end of customerserviceimpl.findcustomerdetails");
+        return customerDTO;
+
+    }
+
+    @Override
+    public CustomerDTO save(CustomerRequest customerRequest) throws Customerdetailsnotfound {
+        log.info("inside customerimpl.save().Customerdetailsnotfound:{}",customerRequest);
+        if(customerRequest==null)
+        {
+            log.info("invalid customer details");
+            throw new Customerdetailsnotfound("invalid request");
+        }
+        Customer customer=new Customer();
+        customer.setPhoneNo(customerRequest.getPhoneNo());
+        customer.setAddress(customerRequest.getAddress());
+        Customer customer1=customerrepository.save(customer);
+        CustomerDTO customerDTO=new CustomerDTO();
+        customerDTO.setPhoneNo(customer1.getPhoneNo());
+        customerDTO.setAddress(customer1.getAddress());
+        return customerDTO;
     }
 }

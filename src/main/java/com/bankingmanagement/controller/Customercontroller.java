@@ -1,15 +1,14 @@
 package com.bankingmanagement.controller;
 
 import com.bankingmanagement.model.CustomerDTO;
+import com.bankingmanagement.model.CustomerRequest;
 import com.bankingmanagement.service.Customerservice;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.CollectionUtils;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -19,25 +18,69 @@ import java.util.List;
 public class Customercontroller {
     @Autowired
     Customerservice customerservice;
+
     @GetMapping
     public ResponseEntity<List<CustomerDTO>> getcustomerdetails() {
         log.info("inside customerdetails.getcustomerdetails()");
-        List<CustomerDTO> customerDTOS=null;
-        try
-        {   customerDTOS=customerservice.findAll();
+        List<CustomerDTO> customerDTOS = null;
+        try {
+            customerDTOS = customerservice.findAll();
             log.info("customer details not found");
-        if (CollectionUtils.isEmpty(customerDTOS))
-        {
-            log.info("customer details not found");
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    } catch (Exception exception)
-        {log.error("exception while finding customer details.exception");
+            if (CollectionUtils.isEmpty(customerDTOS)) {
+                log.info("customer details not found");
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception exception) {
+            log.error("exception while finding customer details.exception");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<List<CustomerDTO>>(customerDTOS,HttpStatus.OK);
+        return new ResponseEntity<List<CustomerDTO>>(customerDTOS, HttpStatus.OK);
 
+    }
+
+    @GetMapping("/{custid}")
+    public ResponseEntity<CustomerDTO> getcustomerbycustid(@PathVariable("custid") int custid) {
+        log.info("inside Customercontroller.getcustomerbycustid.custid:{}", custid);
+        if (custid <= 0) {
+            log.info("invalid request");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+        CustomerDTO customerDTO = null;
+        try {
+            customerDTO = customerservice.findcustomerdetails(custid);
+            if (customerDTO == null) {
+                log.info("customer details not found");
+                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            }
 
+
+        } catch (Exception exception) {
+            log.info("customer details not found");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CustomerDTO>(customerDTO, HttpStatus.OK);
+
+    }
+
+    @PostMapping
+    public ResponseEntity<CustomerDTO> save(@RequestBody CustomerRequest customerRequest) {
+        log.info("inside controller.save().customerRequest:{}", customerRequest);
+        if (customerRequest == null) {
+            log.info("invalid request");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        CustomerDTO customerDTO = null;
+        try {
+            customerDTO = customerservice.save(customerRequest);
+            log.info("respose,customerDTO:{}", customerDTO);
+
+        } catch (Exception exception) {
+            log.info("customer details not found");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CustomerDTO>(customerDTO, HttpStatus.OK);
+
+
+    }
 }
 
