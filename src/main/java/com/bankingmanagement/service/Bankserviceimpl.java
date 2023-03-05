@@ -98,6 +98,19 @@ public class Bankserviceimpl implements Bankservice{
         bankDTO.setAddress(bank.getAddress());
         return bankDTO;
     }
+
+    @Override
+    public String delete( int bank_code) throws BankDetailsNotFound{
+        log.info("input to bankserviceimpl,delete,bankcode:{}",bank_code);
+        if (bank_code<=0)
+        {
+            log.info("invalid bankcode");
+            throw new BankDetailsNotFound("invalid bankcode");
+        }
+        bankrepository.deleteById(bank_code);
+        return "bank details has been deleted ";
+
+    }
 }
 
 

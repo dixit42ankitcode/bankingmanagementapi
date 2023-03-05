@@ -12,5 +12,6 @@ public interface Bankservice{
     List<BankDTO> findAll() throws BankDetailsNotFound;
     BankDTO findBankdetails(int code) throws BankDetailsNotFound;
     BankDTO save(BankRequest bankRequest) throws BankDetailsNotFound;
+    String delete(int bank_code)throws BankDetailsNotFound;
 
 }

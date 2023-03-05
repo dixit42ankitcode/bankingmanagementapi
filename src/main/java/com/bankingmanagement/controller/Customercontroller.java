@@ -82,5 +82,43 @@ public class Customercontroller {
 
 
     }
-}
 
+    @PutMapping
+    public ResponseEntity<CustomerDTO> update(@RequestBody CustomerRequest customerRequest) {
+        log.info("inside controller.update().customerRequest:{}", customerRequest);
+        if (customerRequest == null) {
+            log.info("invalid request");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        CustomerDTO customerDTO = null;
+        try {
+            customerDTO = customerservice.save(customerRequest);
+            log.info("respose,customerDTO:{}", customerDTO);
+
+        } catch (Exception exception) {
+            log.info("customer details not found");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<CustomerDTO>(customerDTO, HttpStatus.OK);
+
+
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> delete(@RequestParam("customerId") int customerId) {
+        log.info("input to customercontroller,delete,customerId", customerId);
+        String response = null;
+        if (customerId <= 0) {
+            log.info("invalid customerId");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        try {
+            response = customerservice.delete(customerId);
+            log.info("delete customer details,response", response);
+        } catch (Exception exception) {
+            log.error("exception while getting customer details");
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>(response, HttpStatus.OK);
+    }
+}

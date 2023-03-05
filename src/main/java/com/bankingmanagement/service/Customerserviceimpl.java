@@ -121,4 +121,16 @@ public class Customerserviceimpl implements Customerservice {
         customerDTO.setAddress(customer1.getAddress());
         return customerDTO;
     }
+
+    @Override
+    public String delete(int customerId) throws Customerdetailsnotfound {
+        log.info("input to customerserviceimpl,delete,customerId");
+        if (customerId<=0)
+        {
+            log.info("invalid customerId");
+            throw new Customerdetailsnotfound("invalid customerId");
+        }
+        customerrepository.deleteById(customerId);
+        return "customer details are deleted";
+    }
 }

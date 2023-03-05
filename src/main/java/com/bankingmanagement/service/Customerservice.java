@@ -14,4 +14,5 @@ public interface Customerservice {
     public List<CustomerDTO> findAll() throws Customerdetailsnotfound;
     CustomerDTO findcustomerdetails(int custid)throws Customerdetailsnotfound;
     CustomerDTO save(CustomerRequest customerRequest)throws Customerdetailsnotfound;
+    String delete(int customerId) throws Customerdetailsnotfound;
 }

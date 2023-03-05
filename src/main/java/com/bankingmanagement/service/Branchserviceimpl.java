@@ -103,4 +103,16 @@ public class Branchserviceimpl implements  Branchservice{
         branchDTO.setAddress(branch.getAddress());
         return branchDTO;
     }
+
+    @Override
+    public String delete(int branchId) throws Branchdetailsnotfound {
+        log.info("input to branchserviceimpl,delete,branchid",branchId);
+        if(branchId<=0)
+        {
+            log.info("invalid branchId");
+            throw new Branchdetailsnotfound("invalid branchId");
+        }
+        branchrepository.deleteById(branchId);
+        return "branch details deleted";
+    }
 }

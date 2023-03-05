@@ -9,8 +9,8 @@ import lombok.Setter;
 import java.io.Serializable;
 import java.util.Set;
 
-@Getter
-@Setter
+
+@Data
 @Entity
 @Table(name = "Bank")
 public class Bank  implements Serializable {
