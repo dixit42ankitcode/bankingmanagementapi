@@ -12,5 +12,6 @@ public interface Branchservice {
     List<BranchDTO> findAll() throws Branchdetailsnotfound;
     BranchDTO findbranchdetails(int branchid) throws Branchdetailsnotfound;
     BranchDTO save(BranchRequest branchRequest)throws Branchdetailsnotfound;
+    String delete( int branchId) throws Branchdetailsnotfound;
 
 }

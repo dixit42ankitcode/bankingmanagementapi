@@ -37,14 +37,18 @@ public class Bankserviceimpl implements Bankservice{
             bankDTO.setName(bank.getName());
             bankDTO.setAddress(bank.getAddress());
             Set<Branch> branches = bank.getBranch();
-            List<BranchDTO> branchDTOS = branches.stream().map(branch -> {
-                BranchDTO branchDTO = new BranchDTO();
-                branchDTO.setName(branch.getName());
-                branchDTO.setAddress(branch.getAddress());
-                return branchDTO;
-            }).collect(Collectors.toList());
-            bankDTO.setBranchDTOS(branchDTOS);
-            return bankDTO;
+            List<BranchDTO> branchDTOS=null;
+            if (!CollectionUtils.isEmpty(branches)) {
+                branchDTOS = branches.stream().map(branch -> {
+                    BranchDTO branchDTO = new BranchDTO();
+                    branchDTO.setName(branch.getName());
+                    branchDTO.setAddress(branch.getAddress());
+                    return branchDTO;
+                }).collect(Collectors.toList());
+            }
+                bankDTO.setBranchDTOS(branchDTOS);
+                return bankDTO;
+
         }).collect(Collectors.toList());
        return bankDTOList;
     }
@@ -61,7 +65,7 @@ public class Bankserviceimpl implements Bankservice{
          log.info("bank details for code:{} and the details:{}",code,bank.get());
          if(!bank.isPresent())
          {
-             log.info("bank detrails are not found for bank code:{}",code);
+             log.info("bank details are not found for bank code:{}",code);
              throw new BankDetailsNotFound("bank details are not found");
          }
          Bank bank1=bank.get();
