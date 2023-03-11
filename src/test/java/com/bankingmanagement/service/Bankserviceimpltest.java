@@ -11,11 +11,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
+import static org.assertj.core.api.FactoryBasedNavigableListAssert.assertThat;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 import static org.skyscreamer.jsonassert.JSONAssert.assertEquals;
 
@@ -37,7 +36,6 @@ public class Bankserviceimpltest {
         when(bankrepository.findAll()).thenReturn(banks);
         List<BankDTO> bankDTOList= bankservice.findAll();
         assertEquals(1, bankDTOList.size());
-
     }
 
     private void assertEquals(int i, int size) {
@@ -67,8 +65,50 @@ public class Bankserviceimpltest {
         when(bankrepository.findAll()).thenReturn(banks);
         List<BankDTO> bankDTOList= bankservice.findAll();
         assertEquals(1, bankDTOList.size());
+    }
+  @Test
+   public void testfindBankdetailswithEmptydata() throws BankDetailsNotFound {
+        Bank bank=new Bank();
+        bank.setName("axis");
+        bank.setAddress("delhi");
+        bank.setCode(55);
+        Set<Bank> banks=new HashSet<>();
+        banks.add(bank);
+        when(bankrepository.findById(anyInt())).thenReturn(Optional.of(bank));
+        BankDTO bankDTO= bankservice.findBankdetails(501);
+        assertEquals(1,bankDTO.getCode());
+    }
+    @Test(expected = BankDetailsNotFound.class)
+    public void testfindBankdetails() throws BankDetailsNotFound {
+
+        List<Bank> banks = null;
+        when(bankrepository.findById(anyInt())).thenReturn(Optional.empty());
+        BankDTO bankDTO = bankservice.findBankdetails(100);
+        assertEquals(1,bankDTO.getCode());
+    }
+   @Test
+    public void testfindBankdetailswithbranch() throws BankDetailsNotFound{
+        Bank bank=new Bank();
+        bank.setCode(56);
+        bank.setAddress("lalitpur");
+        bank.setName("hdfc");
+        Branch branch=new Branch();
+        branch.setBranchId(100);
+        branch.setName("lko");
+        branch.setAddress("kolkata");
+        Set<Branch>branches=new HashSet<>();
+        branches.add(branch);
+        bank.setBranch(branches);
+        List<Bank>banks=new ArrayList<>();
+        banks.add(bank);
+        when(bankrepository.findById(anyInt())).thenReturn(Optional.of(bank));
+         BankDTO bankDTO= bankservice.findBankdetails(100);
+        assertEquals(1,bankDTO.getCode());
+    }
+    @Test
+    public void testsave(){
+        Bank bank=new Bank();
 
     }
-
 
 }

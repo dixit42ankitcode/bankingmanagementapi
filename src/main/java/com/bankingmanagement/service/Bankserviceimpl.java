@@ -73,12 +73,15 @@ public class Bankserviceimpl implements Bankservice{
          bankDTO.setName(bank1.getName());
          bankDTO.setAddress(bank1.getAddress());
         Set<Branch> branches = bank1.getBranch();
-        List<BranchDTO> branchDTOS = branches.stream().map(branch -> {
-            BranchDTO branchDTO = new BranchDTO();
-            branchDTO.setName(branch.getName());
-            branchDTO.setAddress(branch.getAddress());
-            return branchDTO;
-        }).collect(Collectors.toList());
+        List<BranchDTO>branchDTOS=null;
+        if (!CollectionUtils.isEmpty(branches)) {
+            branchDTOS = branches.stream().map(branch -> {
+                BranchDTO branchDTO = new BranchDTO();
+                branchDTO.setName(branch.getName());
+                branchDTO.setAddress(branch.getAddress());
+                return branchDTO;
+            }).collect(Collectors.toList());
+        }
         bankDTO.setBranchDTOS(branchDTOS);
         log.info("end of the bankserviceimpl.findbankdetails");
         return bankDTO;
