@@ -67,11 +67,41 @@ public class Branchserviceimpltest {
         assertEquals(1,branchDTOList.size());
     }
     @Test
-    public void testfindbranchdetails(){
+    public void testfindbranchdetailswithEmptydata() throws Branchdetailsnotfound{
         Branch branch=new Branch();
-        branch.
-
-
+        branch.setName("kolaba");
+        branch.setAddress("goa");
+        Set<Branch>branches=new HashSet<>();
+        branches.add(branch);
+        when(branchrepository.findById(anyInt())).thenReturn(Optional.of(branch));
+        BranchDTO branchDTO=branchservice.findbranchdetails(101);
+        assertEquals(1,branchDTO.getBranchId());
+    }
+    @Test(expected = Branchdetailsnotfound.class)
+    public void testfindbranchdetails()throws Branchdetailsnotfound{
+        Set<Branch>branches=new HashSet<>();
+        when(branchrepository.findById(anyInt())).thenReturn(Optional.empty());
+        BranchDTO branchDTO=branchservice.findbranchdetails(101);
+        assertEquals(1,branchDTO.getBranchId());
+    }
+    @Test
+    public void testfindbranchdetailswithloan() throws Branchdetailsnotfound{
+        Branch branch=new Branch();
+        branch.setAddress("delhi");
+        branch.setName("axis");
+        branch.setBranchId(1111);
+        Loan loan=new Loan();
+        loan.setLoanId(222);
+        loan.setLoanamount(40000);
+        loan.setLoanType("personal");
+        Set<Loan>loans=new HashSet<>();
+        loans.add(loan);
+        branch.setLoan(loans);
+        List<Branch>branches=new ArrayList<>();
+        branches.add(branch);
+        when(branchrepository.findById(anyInt())).thenReturn(Optional.of(branch));
+        BranchDTO branchDTO=branchservice.findbranchdetails(101);
+        assertEquals(1,branchDTO.getBranchId());
     }
 
 }

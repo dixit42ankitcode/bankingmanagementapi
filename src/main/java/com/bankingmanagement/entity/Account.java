@@ -14,11 +14,11 @@ public class Account implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "account_no")
-
     private long accontNo;
     @Column(name = "account_type")
 
     private String accountType;
+    @Column(name = "account_balance")
 
     private double balance;
     @ManyToOne

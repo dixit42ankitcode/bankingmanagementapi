@@ -1,5 +1,6 @@
 package com.bankingmanagement.controller;
 
+import com.bankingmanagement.exception.Customerdetailsnotfound;
 import com.bankingmanagement.model.CustomerDTO;
 import com.bankingmanagement.model.CustomerRequest;
 import com.bankingmanagement.service.Customerservice;
@@ -39,24 +40,20 @@ public class Customercontroller {
     }
 
     @GetMapping("/{custid}")
-    public ResponseEntity<CustomerDTO> getcustomerbycustid(@PathVariable("custid") int custid) {
+    public ResponseEntity<CustomerDTO> getcustomerbycustid(@PathVariable("custid") int custid) throws Customerdetailsnotfound {
         log.info("inside Customercontroller.getcustomerbycustid.custid:{}", custid);
         if (custid <= 0) {
             log.info("invalid request");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         CustomerDTO customerDTO = null;
-        try {
             customerDTO = customerservice.findcustomerdetails(custid);
             if (customerDTO == null) {
                 log.info("customer details not found");
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
 
 
-        } catch (Exception exception) {
-            log.info("customer details not found");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
         return new ResponseEntity<CustomerDTO>(customerDTO, HttpStatus.OK);
 

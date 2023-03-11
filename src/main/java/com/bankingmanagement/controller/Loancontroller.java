@@ -1,5 +1,6 @@
 package com.bankingmanagement.controller;
 
+import com.bankingmanagement.exception.Loandetailsnotfound;
 import com.bankingmanagement.model.LoanDTO;
 import com.bankingmanagement.model.LoanRequest;
 import com.bankingmanagement.service.Loanservice;
@@ -38,23 +39,19 @@ public class Loancontroller {
     }
 
     @GetMapping("/{loanId}")
-    public ResponseEntity<LoanDTO> getloanbyloanId(@PathVariable("loanId") int loanId) {
+    public ResponseEntity<LoanDTO> getloanbyloanId(@PathVariable("loanId") int loanId) throws Loandetailsnotfound {
         log.info("input to controller,getloanbyloanId,loanId:{}", loanId);
         if (loanId <= 0) {
             log.info("invalid loan request");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         LoanDTO loanDTO = null;
-        try {
+
             loanDTO = loanservice.findloandetails(loanId);
             if (loanDTO == null) {
                 log.info("loan details not found");
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
 
-        } catch (Exception exception) {
-            log.info("exception while finding loan detaisls");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<LoanDTO>(loanDTO, HttpStatus.OK);
 

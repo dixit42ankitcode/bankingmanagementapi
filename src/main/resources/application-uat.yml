@@ -5,6 +5,6 @@ server:
 spring:
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/bankingmanagement
+    url: jdbc:mysql://localhost:3306/sys
     username: root
     password: carnew290

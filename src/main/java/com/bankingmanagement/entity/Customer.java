@@ -22,7 +22,7 @@ public class Customer implements Serializable {
     private String name;
     @Column(name = "cust_phone")
     private long phoneNo;
-    @Column(name = "cust_add")
+    @Column(name = "cust_address")
     private String address;
     @OneToMany(mappedBy = "customer")
     private Set<Account> account;

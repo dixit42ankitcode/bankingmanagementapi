@@ -44,23 +44,20 @@ public class Branchcontroller {
 
 
     @GetMapping("/{branch_id}")
-    public ResponseEntity<BranchDTO> getbranchbyid(@PathVariable("branch_id") int branchid) {
+    public ResponseEntity<BranchDTO> getbranchbyid(@PathVariable("branch_id") int branchid) throws Branchdetailsnotfound {
         log.info("inside branchcontroller.getbranchbyuid.branchid:{}", branchid);
         if (branchid <= 0) {
             log.info("invalid branchid");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         BranchDTO branchdto = null;
-        try {
+
             branchdto = branchservice.findbranchdetails(branchid);
             if (branchdto == null) {
                 log.info("branch details not found");
                 return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
 
-        } catch (Exception exception) {
-            log.info("branch details not found ");
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
         return new ResponseEntity<BranchDTO>(branchdto, HttpStatus.OK);
 

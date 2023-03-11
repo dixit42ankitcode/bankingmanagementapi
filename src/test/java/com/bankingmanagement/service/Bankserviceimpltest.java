@@ -4,6 +4,7 @@ import com.bankingmanagement.entity.Bank;
 import com.bankingmanagement.entity.Branch;
 import com.bankingmanagement.exception.BankDetailsNotFound;
 import com.bankingmanagement.model.BankDTO;
+import com.bankingmanagement.model.BankRequest;
 import com.bankingmanagement.repositoty.Bankrepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -67,19 +68,19 @@ public class Bankserviceimpltest {
         assertEquals(1, bankDTOList.size());
     }
   @Test
-   public void testfindBankdetailswithEmptydata() throws BankDetailsNotFound {
+   public void testfindBankdetailswithEmptydata() throws BankDetailsNotFound,InterruptedException {
         Bank bank=new Bank();
         bank.setName("axis");
         bank.setAddress("delhi");
         bank.setCode(55);
-        Set<Bank> banks=new HashSet<>();
+        List<Bank>banks=new ArrayList<>();
         banks.add(bank);
         when(bankrepository.findById(anyInt())).thenReturn(Optional.of(bank));
         BankDTO bankDTO= bankservice.findBankdetails(501);
         assertEquals(1,bankDTO.getCode());
     }
     @Test(expected = BankDetailsNotFound.class)
-    public void testfindBankdetails() throws BankDetailsNotFound {
+    public void testfindBankdetails() throws BankDetailsNotFound, InterruptedException {
 
         List<Bank> banks = null;
         when(bankrepository.findById(anyInt())).thenReturn(Optional.empty());
@@ -87,7 +88,7 @@ public class Bankserviceimpltest {
         assertEquals(1,bankDTO.getCode());
     }
    @Test
-    public void testfindBankdetailswithbranch() throws BankDetailsNotFound{
+    public void testfindBankdetailswithbranch() throws BankDetailsNotFound,InterruptedException{
         Bank bank=new Bank();
         bank.setCode(56);
         bank.setAddress("lalitpur");
@@ -106,9 +107,15 @@ public class Bankserviceimpltest {
         assertEquals(1,bankDTO.getCode());
     }
     @Test
-    public void testsave(){
+    public void testsave()throws BankDetailsNotFound{
         Bank bank=new Bank();
-
+        bank.setName("sbi");
+        bank.setAddress("kolkata");
+        List<Bank>banks=new ArrayList<>();
+        banks.add(bank);
+        when(bankrepository.save(bank)).thenReturn(bank);
+        List<BankDTO>bankDTOList=bankservice.save(BankDTO);
+        assertEquals(1,bankDTOList.size());
     }
 
 }

@@ -18,8 +18,10 @@ public class Bank  implements Serializable {
     @Id
     @Column(name="bank_code")
     private int code;
+    @Column(name = "bank_name")
 
     private String name;
+    @Column(name = "bank_address")
     private String address;
     @OneToMany(mappedBy = "bank")
     private Set<Branch> branch;

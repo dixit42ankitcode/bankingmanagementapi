@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 
+@EnableCaching
 @SpringBootApplication
 @Slf4j
 public class BankingmanagementApiApplication {

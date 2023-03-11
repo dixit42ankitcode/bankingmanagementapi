@@ -8,6 +8,8 @@ import com.bankingmanagement.model.BankRequest;
 import com.bankingmanagement.model.BranchDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import com.bankingmanagement.repositoty.Bankrepository;
@@ -52,28 +54,27 @@ public class Bankserviceimpl implements Bankservice{
         }).collect(Collectors.toList());
        return bankDTOList;
     }
-
+    @Cacheable("code")
     @Override
-    public BankDTO findBankdetails(int code) throws BankDetailsNotFound {
-         log.info("input to bankerviceimpl.findBankdetails.code:{}",code);
-         if(code<=0)
-         {
-             log.info("bank details not found");
-             throw new BankDetailsNotFound("invalid bank code");
-         }
-        Optional<Bank>bank=bankrepository.findById(code);
-         log.info("bank details for code:{} and the details:{}",code,bank.get());
-         if(!bank.isPresent())
-         {
-             log.info("bank details are not found for bank code:{}",code);
-             throw new BankDetailsNotFound("bank details are not found");
-         }
-         Bank bank1=bank.get();
-         BankDTO bankDTO=new BankDTO();
-         bankDTO.setName(bank1.getName());
-         bankDTO.setAddress(bank1.getAddress());
+    public BankDTO findBankdetails(int code) throws BankDetailsNotFound, InterruptedException {
+        log.info("input to bankerviceimpl.findBankdetails.code:{}", code);
+        if (code <= 0) {
+            log.info("bank details not found");
+            throw new BankDetailsNotFound("invalid bank code");
+        }
+        Optional<Bank> bank = bankrepository.findById(code);
+        Thread.sleep(2000);
+        log.info("bank details for code:{} and the details:{}", code, bank.get());
+        if (!bank.isPresent()) {
+            log.info("bank details are not found for bank code:{}", code);
+            throw new BankDetailsNotFound("bank details are not found");
+        }
+        Bank bank1 = bank.get();
+        BankDTO bankDTO = new BankDTO();
+        bankDTO.setName(bank1.getName());
+        bankDTO.setAddress(bank1.getAddress());
         Set<Branch> branches = bank1.getBranch();
-        List<BranchDTO>branchDTOS=null;
+        List<BranchDTO> branchDTOS = null;
         if (!CollectionUtils.isEmpty(branches)) {
             branchDTOS = branches.stream().map(branch -> {
                 BranchDTO branchDTO = new BranchDTO();
@@ -86,6 +87,11 @@ public class Bankserviceimpl implements Bankservice{
         log.info("end of the bankserviceimpl.findbankdetails");
         return bankDTO;
     }
+    @CacheEvict(value ="code",allEntries = true )
+    public void clearcache(){
+
+    }
+
 
     @Override
     public BankDTO save(BankRequest bankRequest) throws BankDetailsNotFound{

@@ -10,8 +10,9 @@ import java.util.List;
 
 public interface Bankservice{
     List<BankDTO> findAll() throws BankDetailsNotFound;
-    BankDTO findBankdetails(int code) throws BankDetailsNotFound;
+    BankDTO findBankdetails(int code) throws BankDetailsNotFound, InterruptedException;
     BankDTO save(BankRequest bankRequest) throws BankDetailsNotFound;
     String delete(int bank_code)throws BankDetailsNotFound;
+    public void clearcache();
 
 }

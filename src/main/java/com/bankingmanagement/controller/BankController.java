@@ -40,27 +40,22 @@ public class BankController {
     }
 
     @GetMapping("/{code}")
-    public ResponseEntity<BankDTO> getbankbycode(@PathVariable("code") int code) {
+    public ResponseEntity<BankDTO> getbankbycode(@PathVariable("code") int code) throws BankDetailsNotFound, InterruptedException {
         log.info(" input to bankcontroller.getbankbycode.code:{}", code);
         if (code <= 0) {
             log.info("invalid bank code");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         BankDTO bankDTO = null;
-        try {
-            bankDTO = bankservice.findBankdetails(code);
-            if (bankDTO == null) {
-                log.info("bank details are not found");
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-            }
 
-        } catch (Exception exception) {
-            log.error("exception while handling bank details by code", exception);
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        bankDTO = bankservice.findBankdetails(code);
+        if (bankDTO == null) {
+            log.info("bank details are not found");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<BankDTO>(bankDTO, HttpStatus.OK);
-
     }
+
 
     @PostMapping
     public ResponseEntity<BankDTO> save(@RequestBody BankRequest bankRequest) {
@@ -112,13 +107,24 @@ public class BankController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         try {
-            response=bankservice.delete(code);
-            log.info("delete bank details response:{}",response);
+            response = bankservice.delete(code);
+            log.info("delete bank details response:{}", response);
         } catch (Exception exception) {
             log.error("exception while deleting bank details");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<String>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/clearcache")
+    public ResponseEntity<String> clearcache() {
+        try {
+            bankservice.clearcache();
+        } catch (Exception exception) {
+            log.error("exception while calling get", exception);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("cache has been deleted", HttpStatus.OK);
     }
 }
 
