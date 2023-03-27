@@ -44,7 +44,7 @@ public class Branchcontroller {
 
 
     @GetMapping("/{branch_id}")
-    public ResponseEntity<BranchDTO> getbranchbyid(@PathVariable("branch_id") int branchid) throws Branchdetailsnotfound {
+    public ResponseEntity<BranchDTO> getbranchbyid(@PathVariable("branch_id") int branchid) throws Branchdetailsnotfound, InterruptedException {
         log.info("inside branchcontroller.getbranchbyuid.branchid:{}", branchid);
         if (branchid <= 0) {
             log.info("invalid branchid");
@@ -60,7 +60,6 @@ public class Branchcontroller {
 
         }
         return new ResponseEntity<BranchDTO>(branchdto, HttpStatus.OK);
-
     }
 
     @PostMapping
@@ -81,10 +80,7 @@ public class Branchcontroller {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<BranchDTO>(branchDTO, HttpStatus.OK);
-
-
     }
-
     @PutMapping
     public ResponseEntity<BranchDTO> update(@RequestBody BranchRequest branchRequest) {
         log.info("inside controller.update().branchrequest:{}", branchRequest);
@@ -125,6 +121,16 @@ public class Branchcontroller {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<String>(response,HttpStatus.OK);
+    }
+    @GetMapping("/clearcache")
+    public ResponseEntity<String>clearcache(){
+        try {
+            branchservice.clearcache();
+        }catch (Exception exception){
+            log.error("exception while calling get",exception);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("cache has been deleted",HttpStatus.OK);
     }
 
 }

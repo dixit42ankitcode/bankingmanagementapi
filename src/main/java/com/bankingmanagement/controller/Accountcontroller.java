@@ -47,13 +47,10 @@ public class Accountcontroller {
         }
         AccountDTO accountDTO = null;
 
-            accountDTO = accountservice.findaccountdetails(account_no);
-            if (accountDTO == null) {
-                log.info("account details not found");
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-
-
+        accountDTO = accountservice.findaccountdetails(account_no);
+        if (accountDTO == null) {
+            log.info("account details not found");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<AccountDTO>(accountDTO, HttpStatus.OK);
     }
@@ -112,4 +109,16 @@ public class Accountcontroller {
         }
         return new ResponseEntity<String>(response, HttpStatus.OK);
     }
+
+    @GetMapping("/clearcache")
+    public ResponseEntity<String> clearcache() {
+        try {
+            accountservice.clearcache();
+        } catch (Exception exception) {
+            log.error("exception while processing get", exception);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("cache deleted", HttpStatus.OK);
+    }
 }
+

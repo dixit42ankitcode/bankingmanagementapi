@@ -11,4 +11,5 @@ public interface Accountservice {
     AccountDTO findaccountdetails(long account_no) throws Accountdetailsnotfound;
     AccountDTO save(AccountRequest accountRequest)throws Accountdetailsnotfound;
     String delete(long accountNo)throws Accountdetailsnotfound;
+    public void clearcache();
 }

@@ -3,6 +3,7 @@ package com.bankingmanagement.controller;
 import com.bankingmanagement.exception.BankDetailsNotFound;
 import com.bankingmanagement.model.BankDTO;
 import com.bankingmanagement.model.BankRequest;
+import com.bankingmanagement.model.CustomerDTO;
 import com.bankingmanagement.service.Bankservice;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +48,6 @@ public class BankController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         BankDTO bankDTO = null;
-
         bankDTO = bankservice.findBankdetails(code);
         if (bankDTO == null) {
             log.info("bank details are not found");
@@ -55,8 +55,23 @@ public class BankController {
         }
         return new ResponseEntity<BankDTO>(bankDTO, HttpStatus.OK);
     }
-
-
+    @GetMapping("/name")
+    public ResponseEntity<BankDTO> getbankbycode(@RequestParam("name") String name) throws BankDetailsNotFound {
+        log.info(" input to bankcontroller.getbankbycode.code:{}", name);
+        if (name==null) {
+            log.info("invalid bank code");
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        BankDTO bankDTO = null;
+        try {
+            bankDTO = bankservice.findBankdetails(Integer.parseInt(name));
+            log.info("response,bankDTO:{}", bankDTO);
+        } catch (Exception exception) {
+            log.error("exception while handling bank details by code", exception);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<BankDTO>(bankDTO, HttpStatus.OK);
+    }
     @PostMapping
     public ResponseEntity<BankDTO> save(@RequestBody BankRequest bankRequest) {
         log.info("inside controller.save().bankRequest:{}", bankRequest);
@@ -68,8 +83,6 @@ public class BankController {
         try {
             bankDTO = bankservice.save(bankRequest);
             log.info("response,bankDTO:{}", bankDTO);
-
-
         } catch (Exception exception) {
             log.error("exception while handling bank details by code", exception);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
@@ -126,5 +139,6 @@ public class BankController {
         }
         return new ResponseEntity<String>("cache has been deleted", HttpStatus.OK);
     }
+
 }
 

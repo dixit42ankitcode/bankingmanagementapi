@@ -12,5 +12,6 @@ public interface Loanservice {
     LoanDTO findloandetails(int loanId) throws Loandetailsnotfound;
     LoanDTO save(LoanRequest loanRequest) throws Loandetailsnotfound;
     String delete(int loanId) throws Loandetailsnotfound;
+    public void clearcache();
 
 }

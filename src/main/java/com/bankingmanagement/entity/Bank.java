@@ -25,6 +25,4 @@ public class Bank  implements Serializable {
     private String address;
     @OneToMany(mappedBy = "bank")
     private Set<Branch> branch;
-
-
 }

@@ -9,5 +9,5 @@ public class AccountDTO {
     private String accountType;
 
     private double balance;
-    private List<CustomerDTO> customerDTOS;
+    private CustomerDTO customerDTOS;
 }

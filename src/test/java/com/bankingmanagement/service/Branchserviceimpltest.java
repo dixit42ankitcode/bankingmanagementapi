@@ -23,7 +23,7 @@ public class Branchserviceimpltest {
     @Mock
     private Branchrepository branchrepository;
     @InjectMocks
-    private Branchservice branchservice;
+    private Branchserviceimpl branchservice;
     @Test
     public void testfindAll() throws Branchdetailsnotfound {
         Branch branch=new Branch();
@@ -38,6 +38,8 @@ public class Branchserviceimpltest {
 
     private void assertEquals(int i, int size) {
     }
+
+
     @Test(expected = Branchdetailsnotfound.class)
     public void testfindAllwithEmptydata() throws Branchdetailsnotfound{
 
@@ -67,7 +69,7 @@ public class Branchserviceimpltest {
         assertEquals(1,branchDTOList.size());
     }
     @Test
-    public void testfindbranchdetailswithEmptydata() throws Branchdetailsnotfound{
+    public void testfindbranchdetailswithEmptydata() throws Branchdetailsnotfound, InterruptedException {
         Branch branch=new Branch();
         branch.setName("kolaba");
         branch.setAddress("goa");
@@ -78,14 +80,14 @@ public class Branchserviceimpltest {
         assertEquals(1,branchDTO.getBranchId());
     }
     @Test(expected = Branchdetailsnotfound.class)
-    public void testfindbranchdetails()throws Branchdetailsnotfound{
-        Set<Branch>branches=new HashSet<>();
-        when(branchrepository.findById(anyInt())).thenReturn(Optional.empty());
+    public void testfindbranchdetails() throws Branchdetailsnotfound, InterruptedException {
+        Set<Branch>branches=null;
+        when(branchrepository.findById(anyInt())).thenReturn(null);
         BranchDTO branchDTO=branchservice.findbranchdetails(101);
-        assertEquals(1,branchDTO.getBranchId());
+
     }
     @Test
-    public void testfindbranchdetailswithloan() throws Branchdetailsnotfound{
+    public void testfindbranchdetailswithloan() throws Branchdetailsnotfound, InterruptedException {
         Branch branch=new Branch();
         branch.setAddress("delhi");
         branch.setName("axis");

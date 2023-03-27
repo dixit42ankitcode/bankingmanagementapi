@@ -8,8 +8,8 @@ import java.util.List;
 public class LoanDTO {
     private  String loanType;
     private  double loanamount;
-   private List<BranchDTO>branchDTOS;
-   private List<CustomerDTO>customerDTOS;
+   private BranchDTO branchDTOS;
+   private CustomerDTO customerDTOS;
 
 
 

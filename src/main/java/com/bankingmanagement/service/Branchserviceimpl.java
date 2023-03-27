@@ -11,6 +11,8 @@ import com.bankingmanagement.model.LoanDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bankingmanagement.repositoty.Branchrepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -40,20 +42,23 @@ public class Branchserviceimpl implements  Branchservice{
             branchDTO.setName(branch.getName());
             branchDTO.setAddress(branch.getAddress());
             Set<Loan> loans =branch.getLoan();
-            List<LoanDTO> loanDTOS=loans.stream().map(loan -> {
-                LoanDTO loanDTO=new LoanDTO();
-                loanDTO.setLoanType(loan.getLoanType());
-                loanDTO.setLoanamount(loan.getLoanamount());
-                return loanDTO;
-            }).collect(Collectors.toList());
-            branchDTO.setLoandtos(loanDTOS);
+            List<LoanDTO>loanDTOList=null;
+            if (!CollectionUtils.isEmpty(loans)) {
+                List<LoanDTO> loanDTOS = loans.stream().map(loan -> {
+                    LoanDTO loanDTO = new LoanDTO();
+                    loanDTO.setLoanType(loan.getLoanType());
+                    loanDTO.setLoanamount(loan.getLoanamount());
+                    return loanDTO;
+                }).collect(Collectors.toList());
+            }
+            branchDTO.setLoandtos(loanDTOList);
             return branchDTO;
         }).collect(Collectors.toList());
         return branchDTOList;
     }
-
+    @Cacheable("branch_id")
     @Override
-    public BranchDTO findbranchdetails(int branchid) throws Branchdetailsnotfound {
+    public BranchDTO findbranchdetails(int branchid) throws Branchdetailsnotfound, InterruptedException {
         log.info("input to branchserviceimpl.findbranchdetails.branchid:{}",branchid);
         if(branchid<=0)
         {
@@ -62,26 +67,35 @@ public class Branchserviceimpl implements  Branchservice{
 
         }
         Optional<Branch> branch=branchrepository.findById(branchid);
-        log.info("branch details for branchid:{},details:{}",branchid,branch.get());
-        if(!branch.isPresent())
+        Thread.sleep(2000l);
+        if(branch==null)
         {
             log.info("branch details not found for branch id:{}",branchid);
             throw new Branchdetailsnotfound("branch details not found");
         }
+        log.info("branch details for branchid:{},details:{}",branchid,branch.get());
         Branch branch1=branch.get();
         BranchDTO branchDTO=new BranchDTO();
         branchDTO.setName(branch1.getName());
         branchDTO.setAddress(branch1.getAddress());
         Set<Loan> loans =branch1.getLoan();
-        List<LoanDTO> loanDTOS=loans.stream().map(loan -> {
-            LoanDTO loanDTO=new LoanDTO();
-            loanDTO.setLoanType(loan.getLoanType());
-            loanDTO.setLoanamount(loan.getLoanamount());
-            return loanDTO;
-        }).collect(Collectors.toList());
-        branchDTO.setLoandtos(loanDTOS);
+        List<LoanDTO>loanDTOList=null;
+        if (!CollectionUtils.isEmpty(loans)) {
+            List<LoanDTO> loanDTOS = loans.stream().map(loan -> {
+                LoanDTO loanDTO = new LoanDTO();
+                loanDTO.setLoanType(loan.getLoanType());
+                loanDTO.setLoanamount(loan.getLoanamount());
+                return loanDTO;
+            }).collect(Collectors.toList());
+        }
+        branchDTO.setLoandtos(loanDTOList);
         log.info("end of branchserviceimpl.findbranchdetails");
         return branchDTO;
+
+    }
+    @CacheEvict(value ="branch_id",allEntries = true)
+    @Override
+    public void clearcache() {
 
     }
 
@@ -115,4 +129,6 @@ public class Branchserviceimpl implements  Branchservice{
         branchrepository.deleteById(branchId);
         return "branch details deleted";
     }
+
+
 }

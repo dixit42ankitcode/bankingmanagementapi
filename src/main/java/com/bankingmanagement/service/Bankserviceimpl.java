@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 import com.bankingmanagement.repositoty.Bankrepository;
@@ -17,29 +18,30 @@ import com.bankingmanagement.repositoty.Bankrepository;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 import java.util.stream.Collectors;
 
 @Slf4j
 @Service
-public class Bankserviceimpl implements Bankservice{
+public class Bankserviceimpl implements Bankservice {
     @Autowired
     Bankrepository bankrepository;
+
     @Override
-    public List<BankDTO> findAll()throws BankDetailsNotFound {
+    public List<BankDTO> findAll() throws BankDetailsNotFound {
         log.info("inside Bankserviceimpl.findall()");
-        List<Bank> banks=bankrepository.findAll();
-        log.info("list of Banks,banks:{}",banks);
-       if(CollectionUtils.isEmpty(banks))
-        {
+        List<Bank> banks = bankrepository.findAll();
+        log.info("list of Banks,banks:{}", banks);
+        if (CollectionUtils.isEmpty(banks)) {
             log.info("bank details not found");
             throw new BankDetailsNotFound("bank details not found");
         }
-        List<BankDTO> bankDTOList= banks.stream().map(bank -> {
+        List<BankDTO> bankDTOList = banks.stream().map(bank -> {
             BankDTO bankDTO = new BankDTO();
             bankDTO.setName(bank.getName());
             bankDTO.setAddress(bank.getAddress());
             Set<Branch> branches = bank.getBranch();
-            List<BranchDTO> branchDTOS=null;
+            List<BranchDTO> branchDTOS = null;
             if (!CollectionUtils.isEmpty(branches)) {
                 branchDTOS = branches.stream().map(branch -> {
                     BranchDTO branchDTO = new BranchDTO();
@@ -48,12 +50,12 @@ public class Bankserviceimpl implements Bankservice{
                     return branchDTO;
                 }).collect(Collectors.toList());
             }
-                bankDTO.setBranchDTOS(branchDTOS);
-                return bankDTO;
-
+            bankDTO.setBranchDTOS(branchDTOS);
+            return bankDTO;
         }).collect(Collectors.toList());
-       return bankDTOList;
+        return bankDTOList;
     }
+
     @Cacheable("code")
     @Override
     public BankDTO findBankdetails(int code) throws BankDetailsNotFound, InterruptedException {
@@ -64,11 +66,11 @@ public class Bankserviceimpl implements Bankservice{
         }
         Optional<Bank> bank = bankrepository.findById(code);
         Thread.sleep(2000);
-        log.info("bank details for code:{} and the details:{}", code, bank.get());
-        if (!bank.isPresent()) {
+        if (bank==null) {
             log.info("bank details are not found for bank code:{}", code);
             throw new BankDetailsNotFound("bank details are not found");
         }
+        log.info("bank details for code:{} and the details:{}", code, bank.get());
         Bank bank1 = bank.get();
         BankDTO bankDTO = new BankDTO();
         bankDTO.setName(bank1.getName());
@@ -87,12 +89,12 @@ public class Bankserviceimpl implements Bankservice{
         log.info("end of the bankserviceimpl.findbankdetails");
         return bankDTO;
     }
-    @CacheEvict(value ="code",allEntries = true )
-    public void clearcache(){
+
+
+    @CacheEvict(value = "code", allEntries = true)
+    public void clearcache() {
 
     }
-
-
     @Override
     public BankDTO save(BankRequest bankRequest) throws BankDetailsNotFound{
         log.info("input to bankserviceimpl.save().bankRequest:{}",bankRequest);

@@ -10,8 +10,9 @@ import java.util.List;
 
 public interface Branchservice {
     List<BranchDTO> findAll() throws Branchdetailsnotfound;
-    BranchDTO findbranchdetails(int branchid) throws Branchdetailsnotfound;
+    BranchDTO findbranchdetails(int branchid) throws Branchdetailsnotfound, InterruptedException;
     BranchDTO save(BranchRequest branchRequest)throws Branchdetailsnotfound;
     String delete( int branchId) throws Branchdetailsnotfound;
+    public void clearcache();
 
 }

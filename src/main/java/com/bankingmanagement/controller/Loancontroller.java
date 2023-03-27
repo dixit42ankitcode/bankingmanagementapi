@@ -47,10 +47,10 @@ public class Loancontroller {
         }
         LoanDTO loanDTO = null;
 
-            loanDTO = loanservice.findloandetails(loanId);
-            if (loanDTO == null) {
-                log.info("loan details not found");
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        loanDTO = loanservice.findloandetails(loanId);
+        if (loanDTO == null) {
+            log.info("loan details not found");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 
         }
         return new ResponseEntity<LoanDTO>(loanDTO, HttpStatus.OK);
@@ -93,26 +93,37 @@ public class Loancontroller {
         return new ResponseEntity<LoanDTO>(loanDTO, HttpStatus.OK);
 
     }
+
     @DeleteMapping
-    public ResponseEntity<String>delete(@RequestParam("loanId")int loanId){
-        log.info("input to loancontroller,delete,loanId",loanId);
-        String response=null;
-        if (loanId<=0)
-        {
+    public ResponseEntity<String> delete(@RequestParam("loanId") int loanId) {
+        log.info("input to loancontroller,delete,loanId", loanId);
+        String response = null;
+        if (loanId <= 0) {
             log.info("invalid loanId");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        try{
-            response= loanservice.delete(loanId);
-            log.info("delete loan details,response",response);
+        try {
+            response = loanservice.delete(loanId);
+            log.info("delete loan details,response", response);
 
-        }catch (Exception exception)
-        {
+        } catch (Exception exception) {
             log.info("exception while getting loan details");
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return new ResponseEntity<String>(response,HttpStatus.OK);
+        return new ResponseEntity<String>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/clearcache")
+    public ResponseEntity<String> clearcache() {
+        try {
+            loanservice.clearcache();
+        } catch (Exception exception) {
+            log.error("exception while calling get", exception);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("delete cache", HttpStatus.OK);
     }
 }
+
 
 

@@ -12,7 +12,10 @@ import java.util.List;
 
 public interface Customerservice {
     public List<CustomerDTO> findAll() throws Customerdetailsnotfound;
-    CustomerDTO findcustomerdetails(int custid)throws Customerdetailsnotfound;
+    CustomerDTO findcustomerdetails(int custid) throws Customerdetailsnotfound, InterruptedException;
     CustomerDTO save(CustomerRequest customerRequest)throws Customerdetailsnotfound;
     String delete(int customerId) throws Customerdetailsnotfound;
+    public void clearcache();
+
+
 }

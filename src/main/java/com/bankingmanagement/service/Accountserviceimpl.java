@@ -9,6 +9,8 @@ import com.bankingmanagement.model.CustomerDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.bankingmanagement.repositoty.Accountrepository;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -40,20 +42,15 @@ public class Accountserviceimpl implements  Accountservice{
             AccountDTO accountDTO=new AccountDTO();
             accountDTO.setAccountType(account.getAccountType());
             accountDTO.setBalance(account.getBalance());
-            Set<Customer>customers= (Set<Customer>) account.getCustomer();
-            List<CustomerDTO>customerDTOS=customers.stream().map(customer -> {
                 CustomerDTO customerDTO=new CustomerDTO();
-                customerDTO.setPhoneNo(customer.getPhoneNo());
-                customerDTO.setAddress(customer.getAddress());
-                return customerDTO;
-            }).collect(Collectors.toList());
-            accountDTO.setCustomerDTOS(customerDTOS);
-            return accountDTO;
+                customerDTO.setPhoneNo(customerDTO.getPhoneNo());
+                customerDTO.setAddress(customerDTO.getAddress());
+                return accountDTO;
         }).collect(Collectors.toList());
         return accountDTOS;
 
     }
-
+    @Cacheable("account_no")
     @Override
     public AccountDTO findaccountdetails(long account_no)throws Accountdetailsnotfound {
         log.info("input to accountserviceimpl.findaccountdetails.acccountno:{}",account_no);
@@ -63,26 +60,27 @@ public class Accountserviceimpl implements  Accountservice{
             throw new Accountdetailsnotfound("invalid account_no");
         }
         Optional<Account>account=accountrepository.findById(account_no);
-        log.info("account details for accountno:{},details:{}",account_no,account.get());
-        if(!account.isPresent())
+        if(account==null)
         {
             log.info("accoupresentnt details are not found ");
             throw new Accountdetailsnotfound("accoupresentnt details are not found");
         }
+        log.info("account details for accountno:{},details:{}",account_no,account.get());
         Account account1=account.get();
         AccountDTO accountDTO=new AccountDTO();
         accountDTO.setAccountType(account1.getAccountType());
         accountDTO.setBalance(account1.getBalance());
-        Set<Customer>customers= (Set<Customer>) account1.getCustomer();
-        List<CustomerDTO>customerDTOS=customers.stream().map(customer -> {
+        Customer customer=account1.getCustomer();
             CustomerDTO customerDTO=new CustomerDTO();
-            customerDTO.setPhoneNo(customer.getPhoneNo());
-            customerDTO.setAddress(customer.getAddress());
-            return customerDTO;
-        }).collect(Collectors.toList());
-        accountDTO.setCustomerDTOS(customerDTOS);
+            customerDTO.setPhoneNo(customerDTO.getPhoneNo());
+            customerDTO.setAddress(customerDTO.getAddress());
+            accountDTO.setCustomerDTOS(customerDTO);
         log.info("end of accountserviceimpl.findaccountdetails");
         return accountDTO;
+    }
+    @CacheEvict(value = "account_no",allEntries = true)
+    @Override
+    public void clearcache() {
 
     }
 
@@ -97,11 +95,11 @@ public class Accountserviceimpl implements  Accountservice{
         Account account=new Account();
         account.setAccountType(account.getAccountType());
         account.setBalance(account.getBalance());
-        Account account1=accountrepository.save(account);
-        AccountDTO accountDTO=new AccountDTO();
-        accountDTO.setAccountType(account1.getAccountType());
-        accountDTO.setBalance(account1.getBalance());
-        return accountDTO;
+        Account account1 = accountrepository.save(account);
+            AccountDTO accountDTO = new AccountDTO();
+            accountDTO.setAccountType(account1.getAccountType());
+            accountDTO.setBalance(account1.getBalance());
+            return accountDTO;
     }
 
     @Override

@@ -12,6 +12,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 @RestController
@@ -40,20 +41,17 @@ public class Customercontroller {
     }
 
     @GetMapping("/{custid}")
-    public ResponseEntity<CustomerDTO> getcustomerbycustid(@PathVariable("custid") int custid) throws Customerdetailsnotfound {
+    public ResponseEntity<CustomerDTO> getcustomerbycustid(@PathVariable("custid") int custid) throws Customerdetailsnotfound, InterruptedException {
         log.info("inside Customercontroller.getcustomerbycustid.custid:{}", custid);
         if (custid <= 0) {
             log.info("invalid request");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         CustomerDTO customerDTO = null;
-            customerDTO = customerservice.findcustomerdetails(custid);
-            if (customerDTO == null) {
-                log.info("customer details not found");
-                return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-
-
-
+        customerDTO = customerservice.findcustomerdetails(custid);
+        if (customerDTO == null) {
+            log.info("customer details not found");
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<CustomerDTO>(customerDTO, HttpStatus.OK);
 
@@ -117,5 +115,16 @@ public class Customercontroller {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return new ResponseEntity<String>(response, HttpStatus.OK);
+    }
+
+    @GetMapping("/clearcache")
+    public ResponseEntity<String> clearcache() {
+        try {
+            customerservice.clearcache();
+        } catch (Exception exception) {
+            log.error("exception while calling get", exception);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return new ResponseEntity<String>("cache has been deleted", HttpStatus.OK);
     }
 }
